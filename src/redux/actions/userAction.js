@@ -5,7 +5,7 @@ export const registerUser = (values) => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });
 
   try {
-    await axios.post("https://incident-task.herokuapp.com/api/users/register", values);
+    await axios.post("/api/users/register", values);
     message.success("User Registered Successfully");
     setTimeout(() => {
       window.location.href = "/login";
@@ -22,7 +22,7 @@ export const loginUser = (values) => async (dispatch) => {
 
   try {
     const user = await axios.post(
-      "https://incident-task.herokuapp.com/api/users/login",
+      "/api/users/login",
       values
     );
     message.success("User Logged In Successfully");
@@ -46,7 +46,7 @@ export const updateUser = (values) => async (dispatch) => {
 
   try {
     const user = await axios.post(
-      "https://incident-task.herokuapp.com/api/users/update",
+      "/api/users/update",
       values
     );
     message.success("User Updated Successfully");
